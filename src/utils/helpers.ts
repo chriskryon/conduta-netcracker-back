@@ -16,7 +16,7 @@ export interface PaginatedResult<T> {
   limit: number;
 }
 
-export function paginate<T>(items: T[], page: number = 1, limit: number = 100): PaginatedResult<T> {
+export function paginate<T>(items: T[], page: number = 1, limit: number = 50): PaginatedResult<T> {
   const validPage = Math.max(1, page);
   const validLimit = Math.max(1, Math.min(limit, 1000)); // max 1000 per page
   const start = (validPage - 1) * validLimit;

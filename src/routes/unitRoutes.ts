@@ -7,7 +7,7 @@ export async function unitRoutes(app: FastifyInstance) {
   app.get('/units', async (req, reply) => {
     const { cidade, uf, page, limit } = req.query as Record<string, string | undefined>;
     const p = page ? parseInt(page) : 1;
-    const l = limit ? parseInt(limit) : 20;
+    const l = limit ? parseInt(limit) : 50;
 
     // Normalize filters to lowercase
     const filters = {
