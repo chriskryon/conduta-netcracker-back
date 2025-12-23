@@ -18,15 +18,15 @@ export interface UnitCard {
 export class UnitService {
   private csv = new CsvService();
 
-  async getUnits(filters: { cidade?: string; uf?: string }): Promise<UnitCard[]> {
+  async getUnits(filters: { cidade?: string; uf?: string; nome?: string }): Promise<UnitCard[]> {
     const rows = await this.csv.getProviders(filters);
     return this.aggregateUnits(rows);
   }
 
   async getUnitsPaginated(
-    filters: { cidade?: string; uf?: string },
+    filters: { cidade?: string; uf?: string; nome?: string },
     page: number = 1,
-    limit: number = 10
+    limit: number = 50
   ): Promise<PaginatedResult<UnitCard>> {
     const rows = await this.csv.getProviders(filters);
     const units = this.aggregateUnits(rows);

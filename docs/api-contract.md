@@ -37,6 +37,16 @@ Base URL
 }
 ```
 
+### GET /units/search
+- Purpose: buscar por nome do recurso (`NOME`/`NOME_2`) dentro de uma cidade/UF.
+- Query params:
+  - `nome` (string, **required**; substring, case-insensitive)
+  - `cidade` (string, optional; case-insensitive equality)
+  - `uf` (string, optional; 2 letters; uppercase comparison)
+  - `page` (number, optional; default 1)
+  - `limit` (number, optional; default 50)
+- Response 200: igual ao `/units`, filtrando pelo `nome` informado.
+
 ### GET /csv
 - Query params:
   - `cidade` (string, optional; case-insensitive equality)
