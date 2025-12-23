@@ -20,7 +20,7 @@ export async function csvRoutes(app: FastifyInstance) {
     const formatted = formatter.formatAndSort(rows);
 
     const p = page ? parseInt(page) : 1;
-    const l = limit ? parseInt(limit) : 10;
+    const l = limit ? parseInt(limit) : 20;
     const result = paginate(formatted, p, l);
 
     return reply.send({ success: true, ...result });
